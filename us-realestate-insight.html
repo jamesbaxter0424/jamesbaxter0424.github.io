@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>US-RealEstate Insight — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="US-RealEstate Insight — A Streamlit dashboard for multi-dimensional valuation and investment decision support in U.S. real estate">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">Data Visualization · 05-839 Interactive Data Science</p>
+					<h1 class="hero__title">US-RealEstate Insight</h1>
+					<p class="hero__sub">A Streamlit dashboard for multi-dimensional valuation and investment decision support in U.S. real estate</p>
+					<div class="tags"><span>Data Visualization</span><span>Machine Learning</span><span>Streamlit</span></div>
+					
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/US-RealEstate/dashboard-overview.png" alt="US-RealEstate Insight overview"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Course</dt><dd>05-839 Interactive Data Science</dd></div><div><dt>Toolkit</dt><dd>Streamlit, LightGBM, SHAP</dd></div><div><dt>Data</dt><dd>USA Real Estate Dataset (Kaggle) + ACS state median income</dd></div><div><dt>Format</dt><dd>Four-page interactive dashboard</dd></div><div><dt>GitHub</dt><dd><a href="https://github.com/jamesbaxter0424/US-RealEstate-Insight" target="_blank" rel="noopener">Link ↗</a></dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#introduction" class="is-on"><b>01</b>Introduction</a><a href="#method"><b>02</b>Method</a><a href="#results"><b>03</b>Results</a><a href="#discussion"><b>04</b>Discussion</a><a href="#video"><b>05</b>Video</a><a href="#references"><b>06</b>References</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="introduction">
+						<p class="mono">01 · Introduction</p>
+						<h2>Price depends on the home and the market around it</h2>
+						<div class="prose"><p>A large home may be expensive because of its size, or because it sits in a high-demand, high-income area. A model that only sees property features — bedrooms, bathrooms, square footage — can misattribute location effects to those features.</p><p>This dashboard compares a <strong>property-only baseline</strong> with a <strong>confounding-aware model</strong> that adds state, city and ZIP, then extends the analysis to affordability, investment screening and an interactive price estimator.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/dashboard-overview.png" alt="The four dashboard pages" loading="lazy"></button><figcaption><b>Fig. 1</b>The four dashboard pages</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="method">
+						<p class="mono">02 · Method</p>
+						<h2>Four pages, from explanation to decision</h2>
+						<div class="prose"><p><strong>1 · Model comparison.</strong> Sold properties are cleaned, missing values median-imputed with indicator flags, price and size log-transformed. Two LightGBM models are compared, and SHAP shows how feature importance shifts once geography is added.</p><p><strong>2 · Geospatial analysis.</strong> Listings are joined with ACS state median household income to derive a price-income ratio, shown on a map with a price filter and state/city drill-down.</p><p><strong>3 · Anomaly detection.</strong> Residuals (actual − predicted, normalized by predicted) flag underpriced homes below −10%, and a ZIP-level view combines average residual, underpriced share and price volatility.</p><p><strong>4 · User input.</strong> Users enter location and property attributes to get a predicted fair price and, given an asking price, a simple buy/hold signal.</p></div>
+					</section>
+<section class="b-sec" id="results">
+						<p class="mono">03 · Results</p>
+						<h2>Location explains much of the price signal</h2>
+						<div class="prose"><p>Adding location lifts test R² from 0.291 to 0.814 and roughly halves RMSE and MAE.</p><table class="tbl"><thead><tr><th>Test metric</th><th>Naïve (property only)</th><th>Confounding-aware (+ location)</th></tr></thead><tbody><tr><td>R²</td><td>0.291</td><td>0.814</td></tr><tr><td>RMSE</td><td>$317,840</td><td>$162,836</td></tr><tr><td>MAE</td><td>$186,719</td><td>$88,503</td></tr></tbody></table></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/model-comparison.png" alt="Naïve vs confounding-aware model" loading="lazy"></button><figcaption><b>Fig. 2</b>Naïve vs confounding-aware model</figcaption></figure></div><div class="prose"><p>In SHAP, structural variables such as bathrooms and house size dominate the naïve model, while encoded ZIP and state features take over in the confounding-aware model — geography absorbs a large part of the pricing signal.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/shap.png" alt="SHAP feature importance with and without location" loading="lazy"></button><figcaption><b>Fig. 3</b>SHAP feature importance with and without location</figcaption></figure></div><div class="prose"><p>The affordability map makes it easy to see where housing is expensive relative to local income.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/cover.png" alt="Property distribution and price-income ratio by state" loading="lazy"></button><figcaption><b>Fig. 4</b>Property distribution and price-income ratio by state</figcaption></figure></div><div class="prose"><p>For screening, a predicted-versus-actual scatter and residual distribution surface homes that sold below model expectations (34.8% underpriced in the sample filter), and the ZIP-level view places them against market volatility.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/property-screener.png" alt="Property screener: predicted fair value vs actual price" loading="lazy"></button><figcaption><b>Fig. 5</b>Property screener: predicted fair value vs actual price</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/opportunity-snapshot.png" alt="Opportunity snapshot and residual distribution" loading="lazy"></button><figcaption><b>Fig. 6</b>Opportunity snapshot and residual distribution</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/market-risk.png" alt="Market risk view by ZIP" loading="lazy"></button><figcaption><b>Fig. 7</b>Market risk view by ZIP</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/zip-volatility.png" alt="Top 30 ZIP codes by price volatility" loading="lazy"></button><figcaption><b>Fig. 8</b>Top 30 ZIP codes by price volatility</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/US-RealEstate/user-input.png" alt="User input interface with predicted fair price" loading="lazy"></button><figcaption><b>Fig. 9</b>User input interface with predicted fair price</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="discussion">
+						<p class="mono">04 · Discussion</p>
+						<h2>Prediction and context work together</h2>
+						<div class="prose"><p>The visuals form a pipeline: the comparison shows geography matters, SHAP shows how the model uses it, and the residual and volatility views show where it can be used for screening. Future work includes ZIP- or tract-level socioeconomic data, richer recommendation scoring that accounts for uncertainty, and a more formal causal approach.</p></div>
+					</section>
+<section class="b-sec" id="video">
+						<p class="mono">05 · Video</p>
+						<h2>Demo video</h2>
+						<div class="b-figs"><div class="work-video"><iframe src="https://www.youtube.com/embed/v6_e4ME6qNU" title="US-RealEstate Insight — video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+					</section>
+<section class="b-sec" id="references">
+						<p class="mono">06 · References</p>
+						<h2>References</h2>
+						<div class="prose"><ul class="refs"><li>Sakib, A. S. <a href="https://www.kaggle.com/datasets/ahmedshahriarsakib/usa-real-estate-dataset" target="_blank" rel="noopener">USA Real Estate Dataset</a>. Kaggle.</li><li>U.S. Census Bureau. <a href="https://www.census.gov/programs-surveys/acs" target="_blank" rel="noopener">American Community Survey (ACS)</a>.</li><li>Rosen, S. (1974). <a href="https://doi.org/10.1086/260169" target="_blank" rel="noopener">Hedonic prices and implicit markets</a>. <em>Journal of Political Economy</em>, 82(1).</li><li>Yoo, S., Im, J., &amp; Wagner, J. E. (2012). <a href="https://doi.org/10.1016/j.landurbplan.2012.06.009" target="_blank" rel="noopener">Variable selection for hedonic model using machine learning approaches</a>. <em>Landscape and Urban Planning</em>, 107(3).</li></ul></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+/* ===== Shared: tokens, reset, header, overlay menu, buttons, chips, footer ===== */
+:root{
+  --bg:#FFFFFF; --bg-alt:#F3F3F0; --ink:#161619; --ink-soft:#4E4E55;
+  --muted:#8C8C93; --line:#E5E5DF; --card:#FFFFFF;
+  --accent:#8B5E3C; --accent-bg:#F5EDE3; --mark:var(--accent);
+  --font-display:'Montserrat',system-ui,sans-serif;
+  --font-body:'Open Sans',system-ui,sans-serif;
+  --font-mono:'Fira Code',ui-monospace,monospace;
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem;
+  --s-6:2rem; --s-7:3rem; --s-8:4rem; --s-9:6rem;
+  --maxw:1200px; --radius:2px; --ease:cubic-bezier(.22,.61,.36,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(1.25rem,5vw,3rem)}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+/* HEADER */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:clamp(1rem,2.5vw,1.5rem) clamp(1.25rem,5vw,3rem);border-bottom:1px solid transparent;transition:background .3s var(--ease),border-color .3s var(--ease)}
+.site-header.is-scrolled{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;font-size:1rem}
+.brand img{height:26px;width:auto}
+.brand__mark{font-family:var(--font-mono);font-weight:600;border:1.5px solid var(--ink);border-radius:var(--radius);padding:.15rem .4rem;font-size:.8rem}
+.menu-btn{display:inline-flex;align-items:center;gap:.55rem;background:none;border:none;cursor:pointer;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding:.4rem 0}
+.menu-btn .bars{display:inline-flex;flex-direction:column;gap:4px;width:22px}
+.menu-btn .bars span{height:1.5px;background:var(--ink)}
+.menu-btn .bars span:nth-child(1){width:22px}.menu-btn .bars span:nth-child(2){width:14px;margin-left:auto}
+.overlay{position:fixed;inset:0;z-index:80;background:var(--ink);color:var(--bg);display:grid;place-content:center;text-align:center;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s var(--ease)}
+.overlay.is-open{opacity:1;visibility:visible}
+.overlay__close{position:absolute;top:clamp(1rem,2.5vw,1.5rem);right:clamp(1.25rem,5vw,3rem);background:none;border:none;color:var(--bg);cursor:pointer;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.18em;text-transform:uppercase}
+.overlay__nav{display:flex;flex-direction:column;gap:.5rem}
+.overlay__nav a{font-family:var(--font-display);font-weight:700;font-size:clamp(2.5rem,9vw,5rem);letter-spacing:-.02em;opacity:.55;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.overlay__nav a:hover,.overlay__nav a[aria-current="page"]{opacity:1}
+.overlay__nav a:hover{transform:translateX(6px)}
+
+/* BUTTONS / SOCIALS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.7rem 1.15rem;border-radius:var(--radius);border:1.5px solid var(--ink);transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn--solid{background:var(--ink);color:var(--bg)}
+.btn--ghost:hover{background:var(--ink);color:var(--bg)}
+.hero__actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-3)}
+.socials{display:flex;gap:.35rem}
+.socials a{display:grid;place-content:center;width:40px;height:40px;border:1px solid var(--line);border-radius:var(--radius);transition:background .25s var(--ease),color .25s var(--ease),border-color .25s,transform .25s}
+.socials a:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);transform:translateY(-2px)}
+.socials svg{width:17px;height:17px}
+
+/* IMAGE FRAME + MISSING-IMAGE PLACEHOLDER */
+.frame{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--bg-alt)}
+.frame img{width:100%;height:100%;object-fit:cover}
+.ph{position:absolute;inset:0;display:none;place-content:center;text-align:center;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;color:var(--muted);padding:1rem;background:repeating-linear-gradient(45deg,var(--bg),var(--bg) 10px,var(--bg-alt) 10px,var(--bg-alt) 20px)}
+.is-missing img{visibility:hidden}
+.is-missing .ph{display:grid}
+
+/* TAGS / CHIPS */
+.tag{display:inline-block;font-family:var(--font-mono);font-size:.62rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:.05rem .5rem;line-height:1.5;vertical-align:.15em;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.02em;color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:.2rem .65rem}
+
+/* FOOTER */
+.site-footer{padding-block:var(--s-5) var(--s-6)}
+.footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-3);margin-top:var(--s-5);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted);padding-top:var(--s-5);border-top:1px solid var(--line)}
+.footer__bottom .links{display:flex;gap:var(--s-4)}
+.footer__bottom a:hover{color:var(--ink)}
+
+/* ENTRY ANIMATION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.rv{animation:fadeUp .5s var(--ease) both}
+[data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+[data-reveal].is-in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}[data-reveal],.rv{opacity:1;transform:none}html{scroll-behavior:auto}}

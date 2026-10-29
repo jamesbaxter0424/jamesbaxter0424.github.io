@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Hybrid Graph Reasoning for Floorplans — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Hybrid Graph Reasoning for Residential Floorplan Generation — graph-conditioned floor plan generation on ResPlan, extending House-GAN++ with GraphGPS-style attention">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">Deep Learning · 11-785 Introduction to Deep Learning</p>
+					<h1 class="hero__title">Hybrid Graph Reasoning for Floorplans</h1>
+					<p class="hero__sub">Graph-conditioned floor plan generation on ResPlan, extending House-GAN++ with GraphGPS-style local–global attention</p>
+					<div class="tags"><span>Deep Learning</span><span>Graph Neural Networks</span><span>Generative Models</span></div>
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/Floorplan/model-architectures.png" alt="Architecture diagrams of the four generators compared"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Team</dt><dd>Group 18 · James Fu, Tor Taepaisitphongse, Jonathan Lai</dd></div><div><dt>Data</dt><dd>ResPlan, ~17,000 residential floor plans</dd></div><div><dt>Baseline</dt><dd>House-GAN++ (Conv-MPN)</dd></div><div><dt>GitHub</dt><dd><a href="https://github.com/jamesbaxter0424/IntroDL_Final_Project" target="_blank" rel="noopener">Link ↗</a></dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#overview" class="is-on"><b>01</b>Overview</a><a href="#data"><b>02</b>Data</a><a href="#models"><b>03</b>Models</a><a href="#training"><b>04</b>Training</a><a href="#results"><b>05</b>Results</a><a href="#takeaways"><b>06</b>Takeaways</a><a href="#references"><b>07</b>References</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="overview">
+						<p class="mono">01 · Overview</p>
+						<h2>Can attention improve graph-conditioned floor plans?</h2>
+						<div class="prose"><p>Useful floor plans must be realistic, semantically correct, and topologically consistent, which makes them a natural testbed for structured generative modeling. This project reproduces a House-GAN++-style baseline on the public ResPlan dataset and extends it with GraphGPS-inspired attention, focusing on <strong>non-fixed completion</strong>: some rooms are given as constraints, and the rest must be generated so that local geometry and graph-level structure both stay plausible.</p><p>The work has three contributions: a full preprocessing pipeline from vector floor plans to graph-conditioned room-mask supervision, a <strong>curriculum</strong> that separates room generation from smaller door targets, and three architectural extensions: a GraphGPS generator, a hybrid GraphGPS with spatial message passing, and a pure transformer.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Floorplan/best-predictions.png" alt="Predictions from the best checkpoint across rooms and doors" loading="lazy"></button><figcaption><b>Fig. 1</b>Predictions from the best checkpoint: fixed nodes are reconstructed exactly, non-fixed rooms and doors are generated</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="data">
+						<p class="mono">02 · Data</p>
+						<h2>From vector polygons to graph-conditioned masks</h2>
+						<div class="prose"><p>RPLAN, used by the original House-GAN++, is not publicly accessible, so the project adopts <strong>ResPlan</strong>, a public vector-graph dataset with explicit connectivity. Each plan is normalized onto a 256 × 256 canvas, then rasterized into 64 × 64 binary masks per node. Nodes are rooms (living room, kitchen, bedroom, bathroom, balcony, storage) or openings (front door, interior door); edges encode adjacency or door-mediated connectivity.</p><p>A key finding came from error analysis: ResPlan often stores a room category, especially living rooms, as a MultiPolygon with tiny fragments. After rasterization these collapse into one-pixel slivers that look like doors, polluting the targets. Filtering them became a critical preprocessing step, <strong>effectively part of model design</strong>.</p></div><div class="b-figs"><figure class="fig fig--pair"><div class="fig__pair" style="grid-template-columns:repeat(3,minmax(0,1fr))"><button class="fig__img" type="button"><img src="assets/img/Floorplan/sample-floorplan-1.png" alt="ResPlan sample floor plan 1" loading="lazy" style="object-fit:contain"></button><button class="fig__img" type="button"><img src="assets/img/Floorplan/sample-floorplan-2.png" alt="ResPlan sample floor plan 2" loading="lazy" style="object-fit:contain"></button><button class="fig__img" type="button"><img src="assets/img/Floorplan/sample-floorplan-3.png" alt="ResPlan sample floor plan 3" loading="lazy" style="object-fit:contain"></button></div><figcaption><b>Fig. 2</b>Residential floor plans from ResPlan, colored by room type</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Floorplan/room-graph.jpg" alt="Room adjacency graph of a floor plan" loading="lazy" style="max-width:26rem;margin-inline:auto"></button><figcaption><b>Fig. 3</b>The same plan as a graph: nodes are rooms and doors, edges are adjacency or door connectivity</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="models">
+						<p class="mono">03 · Models</p>
+						<h2>Local, global, or both</h2>
+						<div class="prose"><p><strong>House-GAN++ baseline</strong> uses convolutional message passing (Conv-MPN) and a relational discriminator. <strong>GraphGPS</strong> replaces the local-only backbone with blocks that combine local convolutional message passing, pooled-token self-attention across nodes, and a feed-forward update broadcast back to the feature map.</p><p><strong>Hybrid GraphGPS + Spatial CMP</strong> keeps House-GAN++’s spatial inductive bias while adding global attention. Early versions copied neighbor feature maps too directly, so the revised block uses degree-normalized pooling, positive-edge-only spatial exchange, and a small residual scale. A <strong>pure transformer</strong> treats each room as one token with graph structure as attention bias; it was not trained to convergence.</p><table class="tbl"><thead><tr><th>Model</th><th>Graph reasoning</th><th>Notes</th></tr></thead><tbody><tr><td>House-GAN++</td><td>Local only</td><td>Baseline; no global context</td></tr><tr><td>GraphGPS</td><td>Local + global</td><td>Conv-MPN + batched attention</td></tr><tr><td>Hybrid GraphGPS</td><td>Local + global</td><td>Learnable scales, InstanceNorm</td></tr><tr><td>Pure Transformer</td><td>Global only</td><td>Room-as-token, edge-type biases</td></tr></tbody></table></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Floorplan/model-architectures.png" alt="Architecture diagrams: Conv-MPN, GraphGPS, Hybrid GraphGPS+CMP, Pure Transformer" loading="lazy"></button><figcaption><b>Fig. 4</b>Model architecture diagrams</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="training">
+						<p class="mono">04 · Training</p>
+						<h2>A curriculum from rooms to doors</h2>
+						<div class="prose"><p>Doors are small and sparse, so training every target jointly made the generator dominated by large room regions and unstable. The curriculum introduces difficulty progressively: <strong>Phase A1</strong> rooms only, <strong>A2</strong> adds the front door, <strong>A3</strong> adds matched interior doors, and an optional <strong>Phase B</strong> enables adversarial refinement once supervised quality is acceptable.</p><p>Supervised phases minimize a weighted L1 loss (foreground weight 30) plus Dice and foreground-ratio terms on active nodes, and a smaller preservation loss on fixed rooms. Evaluation uses room IoU, active-node IoU, and the rates of empty and oversized predictions, alongside FID and GED for comparison with the House-GAN++ literature.</p></div>
+					</section>
+<section class="b-sec" id="results">
+						<p class="mono">05 · Results</p>
+						<h2>Higher IoU is not better geometry</h2>
+						<div class="prose"><p>On phase A, GraphGPS reaches a best validation room IoU of <strong>0.3757</strong> at epoch 20, and the hybrid <strong>0.3494</strong> at epoch 17. The hybrid drives the empty rate to zero earlier and produces more coherent local structure, while GraphGPS’s higher score reflects overlap-friendly but spatially noisy masks. Neither reaches the 0.45 room-IoU threshold for the next curriculum stage.</p><table class="tbl"><thead><tr><th>Model</th><th>Valid masks</th><th>FID (mask)</th><th>FID (bbox)</th></tr></thead><tbody><tr><td>House-GAN++ v1</td><td>14 / 400 (3.5%)</td><td>182.10</td><td>131.57</td></tr><tr><td>House-GAN++ v2</td><td>17 / 80 (21%)</td><td>215.46</td><td>88.30</td></tr><tr><td>GraphGPS</td><td>80 / 88 (90.9%)</td><td>241.56</td><td>71.23</td></tr><tr><td>Hybrid GraphGPS + Spatial CMP</td><td>80 / 92 (87%)</td><td><b>167.03</b></td><td><b>54.14</b></td></tr></tbody></table></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Floorplan/graphgps-epoch20.png" alt="GraphGPS generated masks at epoch 20" loading="lazy"></button><figcaption><b>Fig. 5</b>GraphGPS generated masks, epoch 20 (room IoU 0.3757)</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Floorplan/hybrid-epoch17.png" alt="Hybrid GraphGPS generated masks at epoch 17" loading="lazy"></button><figcaption><b>Fig. 6</b>Hybrid GraphGPS generated masks, epoch 17 (room IoU 0.3494)</figcaption></figure></div><div class="prose"><p>Three failure modes recur: <strong>non-fixed room blobs</strong> that are oversized rather than empty; <strong>spatial copying artifacts</strong> in early hybrids, fixed by normalized pooling; and <strong>adversarial instability</strong>, where the discriminator overpowers a generator that cannot yet produce basic rooms, which is why GAN refinement is deferred. Fixed nodes are always reconstructed reliably, but translating graph structure into stable spatial completions remains the bottleneck.</p></div>
+					</section>
+<section class="b-sec" id="takeaways">
+						<p class="mono">06 · Takeaways</p>
+						<h2>Global attention is useful, spatial reasoning is necessary</h2>
+						<div class="prose"><p>Floor plan generation sits at the intersection of graph reasoning and spatial reasoning. Pooled-token attention captures relationships between rooms but lacks the spatial inductive bias to place them coherently, and rasterization artifacts in the data make preprocessing part of the model. The results should be read as conditional completion rather than unconstrained generation, since many layouts are valid for the same graph.</p><p><strong>Next steps:</strong> geometry-aware supervision (center/size losses, overlap and contact constraints), relative positional encodings in the hybrid block, adversarial refinement once rooms and doors are reliable, and architecture-aware metrics such as connected-component counts, overlap rates, and door–room compatibility.</p><p><strong>My contributions:</strong> ResPlan preprocessing, the graph construction pipeline, data cleaning and filtering, GraphGPS and Hybrid model implementation, curriculum training, quantitative evaluation, and failure analysis.</p></div>
+					</section>
+<section class="b-sec" id="references">
+						<p class="mono">07 · References</p>
+						<h2>References</h2>
+						<div class="prose"><ul class="refs"><li>Abouagour, M., &amp; Garyfallidis, E. (2025). <a href="https://arxiv.org/abs/2508.14006" target="_blank" rel="noopener">ResPlan: A large-scale vector-graph dataset of 17,000 residential floor plans</a>. <em>arXiv:2508.14006</em>.</li><li>Nauata, N., Chang, K.-H., Cheng, C.-Y., &amp; Furukawa, Y. (2020). House-GAN: Relational generative adversarial networks for graph-constrained house layout generation. <em>ECCV</em>.</li><li>Nauata, N., Hosseini, S., Chang, K.-H., Chu, H., Cheng, C.-Y., &amp; Furukawa, Y. (2021). House-GAN++: Generative adversarial layout refinement network towards intelligent computational agent for professional architects. <em>CVPR</em>.</li><li>Rampášek, L., Galkin, M., Dwivedi, V. P., Luu, A. T., Wolf, G., &amp; Beaini, D. (2022). Recipe for a general, powerful, scalable graph transformer. <em>NeurIPS</em>.</li><li>Tang, H., et al. (2024). <a href="https://arxiv.org/abs/2401.07721" target="_blank" rel="noopener">Graph Transformer GANs with graph masked modeling for architectural layout generation</a>. <em>arXiv:2401.07721</em>.</li><li>Wu, W., Liu, Y., et al. (2019). Data-driven interior plan generation for residential buildings. <em>CVPR</em>.</li></ul></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

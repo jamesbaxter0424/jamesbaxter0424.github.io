@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>About — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="About Cheng-Wen (James) Fu — education, courses and skillset.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/about.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html" aria-current="page">About</a></nav>
+	</div>
+
+	<main class="about">
+		<div class="wrap">
+			<div class="about__bar">
+				<a class="eyebrow" href="index.html">← Back to home</a>
+			</div>
+			<div class="lay lay-b">
+				<aside class="b-side">
+					<div class="b-photo frame"><span class="ph">Portrait</span><img src="assets/img/About/selfie.JPG" alt="Portrait of Cheng-Wen Fu" onerror="this.parentNode.classList.add('is-missing')"></div>
+					<div class="hero__cap"><span>Pittsburgh, PA</span><span>2026</span></div>
+					<h1 class="b-name">CHENG WEN FU <span>(James Fu)</span></h1>
+					<section class="b-sedu"><p class="eyebrow">Education</p><ul><li><p class="b-t">Carnegie Mellon University</p><p class="b-d">MS Computational Design <span class="b-yr">2025–27</span></p></li><li><p class="b-t">National Cheng Kung University</p><p class="b-d">Bachelor of Architectural Design <span class="b-yr">2018–23</span></p></li></ul></section>
+					<div class="hero__actions">
+						<a class="btn btn--solid" href="assets/img/About/Resume_James Fu.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+						<div class="socials">
+							<a href="mailto:jfu2@andrew.cmu.edu" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+							<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.3 8.75 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.56-2.3 3.2V21H9z"/></svg></a>
+							<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49l-.01-1.9c-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.56 2.36 1.11 2.94.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9l-.01 2.82c0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg></a>
+						</div>
+					</div>
+				</aside>
+				<div class="b-main">
+					<section class="b-sec"><p class="eyebrow">Skillset</p><div class="b-body b-sks"><div class="b-sk"><p class="b-gt">Programming &amp; Web</p><p class="chips"><span>Python</span><span>JavaScript</span><span>React</span><span>Node.js</span><span>REST APIs</span><span>PostgreSQL</span></p></div><div class="b-sk"><p class="b-gt">AI &amp; Machine Learning</p><p class="chips"><span>PyTorch</span><span>Model Training &amp; Evaluation</span><span>LLM Agents</span><span>MCP</span></p></div><div class="b-sk"><p class="b-gt">Automation &amp; Visualization</p><p class="chips"><span>Grasshopper</span><span>Dynamo</span><span>Revit</span><span>Autodesk APS</span><span>BIM Visualization</span><span>Figma</span></p></div></div></section>
+					<section class="b-sec"><p class="eyebrow">Courses</p><div class="b-body b-groups"><div class="b-group"><p class="b-gt">Machine Learning &amp; AI <span>05</span></p><ul><li><span class="b-code">10-601</span><span class="b-ct">Introduction to Machine Learning <span class="tag">Audit</span></span></li><li><span class="b-code">11-785</span><span class="b-ct">Introduction to Deep Learning</span></li><li><span class="b-code">10-623</span><span class="b-ct">Generative AI</span></li><li><span class="b-code">16-825</span><span class="b-ct">Learning for 3D Vision</span></li><li><span class="b-code">17-745</span><span class="b-ct">Machine Learning in Production</span></li></ul></div><div class="b-group"><p class="b-gt">Design &amp; Interaction <span>03</span></p><ul><li><span class="b-code">05-391</span><span class="b-ct">Designing Human-Centered Software</span></li><li><span class="b-code">48-724</span><span class="b-ct">Scripting and Parametric Design</span></li><li><span class="b-code">51-362</span><span class="b-ct">HyperSense: Augmenting Human Experience in Environments</span></li></ul></div><div class="b-group"><p class="b-gt">Programming &amp; Data <span>02</span></p><ul><li><span class="b-code">15-112</span><span class="b-ct">Fundamentals of Programming and Computer Science</span></li><li><span class="b-code">05-839</span><span class="b-ct">Interactive Data Science</span></li></ul></div></div></section>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/site.js"></script>
+</body>
+</html>

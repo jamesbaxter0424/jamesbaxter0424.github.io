@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cheng-Wen Fu — Work</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Cheng-Wen (James) Fu — all work at a glance.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/work.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html" aria-current="page">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="page-head">
+		<div class="wrap">
+			<p class="eyebrow">Selected Work — <span id="workCount">9</span> projects</p>
+			<h1 class="page-head__title">Work</h1>
+			<p class="page-head__lead">A visual overview of selected projects across computational systems, design tools, human–computer interaction, and spatial design.</p>
+		</div>
+	</section>
+
+	<section class="work">
+		<div class="wrap">
+			<div id="overview"></div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+					<a href="https://www.instagram.com/james_baxter0424" target="_blank" rel="noopener">Instagram</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/projects.js"></script>
+	<script src="assets/js/work.js"></script>
+</body>
+</html>

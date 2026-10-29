@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Peter Pan, Where Is the Shadow Going? — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Peter Pan, Where Is the Shadow Going? — Perceiving an Agent’s Goals, Capabilities, and Behavioral Continuity in Shared Physical Space">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">HCI · CHI 2027 · Under Review</p>
+					<h1 class="hero__title">Peter Pan, Where Is the Shadow Going?</h1>
+					<p class="hero__sub">Perceiving an Agent’s Goals, Capabilities, and Behavioral Continuity in Shared Physical Space</p>
+					<div class="tags"><span>Physical Agent</span><span>Spatial AR</span><span>Human–AI Interaction</span></div>
+					
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/Physical-Agent/cover.jpg" alt="Peter Pan, Where Is the Shadow Going? overview"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Year</dt><dd>2026</dd></div><div><dt>Status</dt><dd>CHI 2027 · Under Review</dd></div><div><dt>Study</dt><dd>18-participant within-subjects + 8-expert pilot</dd></div><div><dt>Toolkit</dt><dd>Python, SAM2, VLM / LLM planning, OpenCV projection</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#introduction" class="is-on"><b>01</b>Introduction</a><a href="#system"><b>02</b>System</a><a href="#study"><b>03</b>Study</a><a href="#findings"><b>04</b>Findings</a><a href="#implications"><b>05</b>Implications</a><a href="#video"><b>06</b>Video</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="introduction">
+						<p class="mono">01 · Introduction</p>
+						<h2>Understanding an agent takes more than recognizing a reaction</h2>
+						<div class="prose"><p>A character approaches an object, recoils, and stops. Does it dislike the object, lack the ability to pass it, or pause before trying another route? A recognizable reaction can express fear without revealing a capability limit or an intended destination.</p><p><strong>Peter Pan</strong> is a projected shadow-agent system: users change the physical scene and watch what the character does next. Three perceived qualities are examined — <strong>behavioral continuity</strong>, <strong>capability awareness</strong>, and <strong>goal-directed planning</strong> — by comparing rule-based planning with role- and context-conditioned LLM planning.</p><p><strong>RQ1</strong> How do perceived goals and capabilities differ between the two planners during exploration? <strong>RQ2</strong> How do they differ in capability awareness and continuity under task constraints? <strong>RQ3</strong> Which behavioral cues do users rely on, and where do interpretations stay uncertain?</p></div>
+					</section>
+<section class="b-sec" id="system">
+						<p class="mono">02 · System</p>
+						<h2>From scene change to projected behavior</h2>
+						<div class="prose"><p>A camera segments the scene (SAM2) and a vision-language model labels objects. These become a structured environment description on a shared 2D world plane, which a planner uses to choose among four preset actions — <em>Walking, Jumping, Scared, Liking</em> — rendered as a projected silhouette.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/world-plane.png" alt="World-plane representation and movement planning" loading="lazy"></button><figcaption><b>Fig. 1</b>World-plane representation and movement planning</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/pipeline.png" alt="Pipeline from camera input to projected animation" loading="lazy"></button><figcaption><b>Fig. 2</b>Pipeline from camera input to projected animation</figcaption></figure></div><div class="prose"><p><strong>RULE</strong> picks actions with ten ordered rules based on geometry, reachability and events. <strong>LLM</strong> additionally receives semantic scene information and a role with dispositions (e.g. fear of insects, liked objects), with a shorter decision cooldown (3 s vs 5 s) and capped expressions in Study 1.</p></div>
+					</section>
+<section class="b-sec" id="study">
+						<p class="mono">03 · Study</p>
+						<h2>Pilot with experts, then an 18-person study</h2>
+						<div class="prose"><p>Eight architecture and design experts tried the first prototype. Three issues shaped the design: inaccurate hand detection blurred which intervention caused a response; sticky notes looked like special system markers; and people spontaneously built barriers to test what the character could do.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/pilot.png" alt="Pilot interactions: bodily shadows, inclined strips and barriers" loading="lazy"></button><figcaption><b>Fig. 3</b>Pilot interactions: bodily shadows, inclined strips and barriers</figcaption></figure></div><div class="prose"><p>In the main study, every participant experienced both planners in two tasks (~55 min): <strong>Study 1</strong> environmental exploration, and <strong>Study 2</strong> an agent-only apple task under changing constraints. Participants were not told which planner they saw or that an apple target existed. Measures were questionnaire ratings (A/B/C, Godspeed, Raw-TLX), event descriptions, and a closing interview.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/apparatus.png" alt="Experimental environment and apparatus" loading="lazy"></button><figcaption><b>Fig. 4</b>Experimental environment and apparatus</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/study-flow.png" alt="Overview of the within-subjects study" loading="lazy"></button><figcaption><b>Fig. 5</b>Overview of the within-subjects study</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/interaction-examples.png" alt="Interaction examples across the four conditions" loading="lazy"></button><figcaption><b>Fig. 6</b>Interaction examples across the four conditions</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="findings">
+						<p class="mono">04 · Findings</p>
+						<h2>Clear gains in exploration, no consistent difference under constraints</h2>
+						<div class="prose"><p>During exploration, LLM planning received significantly higher ratings for goal-directed planning (5.16 vs 4.14) and capability awareness (5.02 vs 3.71). Under task constraints, neither capability awareness nor behavioral continuity differed consistently, and individual participants favored both directions.</p><table class="tbl"><thead><tr><th>Comparison (LLM − RULE)</th><th>n</th><th>Mean Δ</th><th>95% CI</th><th>p (Holm)</th></tr></thead><tbody><tr><td>Study 1 · Goal-directed planning (C)</td><td>17</td><td>+1.02</td><td>[0.55, 1.57]</td><td>.0020</td></tr><tr><td>Study 1 · Capability awareness (B)</td><td>16</td><td>+1.31</td><td>[0.85, 1.77]</td><td>.0005</td></tr><tr><td>Study 2 · Capability awareness (B)</td><td>17</td><td>−0.10</td><td>[−1.00, 0.84]</td><td>1.00</td></tr><tr><td>Study 2 · Behavioral continuity (A)</td><td>17</td><td>+0.20</td><td>[−0.73, 1.27]</td><td>1.00</td></tr></tbody></table></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Physical-Agent/item-distribution.png" alt="Item-level response distributions by task and planner" loading="lazy"></button><figcaption><b>Fig. 7</b>Item-level response distributions by task and planner</figcaption></figure></div><div class="prose"><p>Interviews and event descriptions separated three things users read from behavior: a <strong>visible reaction</strong>, an <strong>interpretable capability boundary</strong>, and a <strong>recognizable tendency across change</strong>. A character that jumped did not necessarily reveal where it was going, and an unexplained stop could mean inability, reluctance, or loading.</p></div>
+					</section>
+<section class="b-sec" id="implications">
+						<p class="mono">05 · Implications</p>
+						<h2>Making reactions, limits and continuity legible</h2>
+						<div class="prose"><p>The findings motivate three design directions for human–agent interaction: connect immediate reactions to ongoing goals; keep the difference between <strong>inability and reluctance</strong> readable; and show what persists through environmental change. Limitations include a small sample, a configuration comparison that bundled decision strategy, semantic information and timing, and an undisclosed task goal.</p></div>
+					</section>
+<section class="b-sec" id="video">
+						<p class="mono">06 · Video</p>
+						<h2>Demo video</h2>
+						<div class="b-figs"><div class="work-video"><iframe src="https://www.youtube.com/embed/ViT9QgtQUkM" title="Peter Pan, Where Is the Shadow Going? — video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

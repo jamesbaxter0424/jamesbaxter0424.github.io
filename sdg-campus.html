@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Streamlining Sensor Registration for BIM Digital Twins — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Streamlining Sensor Registration for BIM Digital Twins — Data Visualization Platform for Digital Twin Integration">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">Digital Twin · 2024</p>
+					<h1 class="hero__title">Streamlining Sensor Registration for BIM Digital Twins</h1>
+					<p class="hero__sub">Data Visualization Platform for Digital Twin Integration</p>
+					<div class="tags"><span>Digital Twin</span><span>BIM Integration</span><span>IoT Data Visualization</span></div>
+					
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/Campus_Project/Campus_cover.gif" alt="Streamlining Sensor Registration for BIM Digital Twins overview"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Year</dt><dd>2024</dd></div><div><dt>Toolkit</dt><dd>React · Node.js · Autodesk SimpleViewer</dd></div><div><dt>Instructor</dt><dd>Shang-Hsien Hsieh</dd></div><div><dt>Recognition</dt><dd><a href="https://iccbei2025.hkust.edu.hk/ICCBEI_2025%20Proceedings.pdf" target="_blank" rel="noopener">ICCBEI 2023 Proceedings ↗</a></dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#background" class="is-on"><b>01</b>Background</a><a href="#architecture"><b>02</b>Architecture</a><a href="#roles"><b>03</b>User Roles</a><a href="#demo"><b>04</b>Demo</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="background">
+						<p class="mono">01 · Background</p>
+						<h2>Making digital twins accessible</h2>
+						<div class="prose"><p>Digital twin technology optimizes energy use, driving the transition to Net Zero Energy Buildings (NZEB). However, high costs and complexity make it challenging for facility managers to develop their own systems without skilled personnel. Our research proposes a streamlined platform using Autodesk Platform Services (APS) and Building Information Modeling (BIM). It simplifies digital twin creation by integrating sensors, spatial management, energy data, and updates, with a user-friendly interface for efficient, expertise-free management.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Campus_Project/Campus-01.jpg" alt="Streamlining Sensor Registration for BIM Digital Twins" loading="lazy"></button><figcaption><b>Fig. 1</b></figcaption></figure></div>
+					</section>
+<section class="b-sec" id="architecture">
+						<p class="mono">02 · Architecture</p>
+						<h2>A three-tier system</h2>
+						<div class="prose"><p>The system architecture follows a typical three-tier structure, consisting of the Application Layer, Business Layer, and Data Layer, moving from the user interface to the core data management functions. Each layer contains specific functional modules to support the integrated management of Building Information Modeling (BIM) and Internet of Things (IoT) sensor data.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Campus_Project/Campus-02.jpg" alt="Streamlining Sensor Registration for BIM Digital Twins" loading="lazy"></button><figcaption><b>Fig. 2</b></figcaption></figure></div>
+					</section>
+<section class="b-sec" id="roles">
+						<p class="mono">03 · User Roles</p>
+						<h2>Three kinds of data access</h2>
+						<div class="prose"><p>It provides three types of data access for different user roles. Building Model Management allows administrators to create projects, update model versions, edit sensor information, and issue authorization codes. Sensor Registration enables registrants to upload sensor data and link real-time or historical records to the database. Model and Sensor Visualization allows general users to view BIM models and real-time sensor data. This workflow simplifies data maintenance and supports the development of building digital twins.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Campus_Project/Campus-06.jpg" alt="Streamlining Sensor Registration for BIM Digital Twins" loading="lazy"></button><figcaption><b>Fig. 3</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Campus_Project/Campus-07.jpg" alt="Streamlining Sensor Registration for BIM Digital Twins" loading="lazy"></button><figcaption><b>Fig. 4</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Campus_Project/Campus-08.jpg" alt="Streamlining Sensor Registration for BIM Digital Twins" loading="lazy"></button><figcaption><b>Fig. 5</b></figcaption></figure></div>
+					</section>
+<section class="b-sec" id="demo">
+						<p class="mono">04 · Demo</p>
+						<h2>Demo video</h2>
+						<div class="b-figs"><div class="work-video"><video controls preload="metadata" playsinline><source src="assets/img/Campus_Project/Campus-video.mp4" type="video/mp4">Your browser does not support HTML5 video playback.</video></div></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

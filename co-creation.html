@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Gestural Co-Creation with AI — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Gestural Co-Creation with AI — A Gesture-Centered Workflow for Human-AI Co-Creation">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">HCI · 2025</p>
+					<h1 class="hero__title">Gestural Co-Creation with AI</h1>
+					<p class="hero__sub">A Gesture-Centered Workflow for Human-AI Co-Creation</p>
+					<div class="tags"><span>HCI</span><span>Design Tools &amp; Platforms</span></div>
+					
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/Co-creation/Co-create_cover.gif" alt="Gestural Co-Creation with AI overview"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Year</dt><dd>2025</dd></div><div><dt>Project Focus</dt><dd>Roles of Humans and AI in Co-Creation</dd></div><div><dt>Toolkit</dt><dd>MediaPipe, OpenCV, Stable Diffusion</dd></div><div><dt>GitHub</dt><dd><a href="https://github.com/jamesbaxter0424/CD_Final" target="_blank" rel="noopener">Link ↗</a></dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#introduction" class="is-on"><b>01</b>Introduction</a><a href="#prototype"><b>02</b>Prototype</a><a href="#system"><b>03</b>System</a><a href="#references"><b>04</b>References</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="introduction">
+						<p class="mono">01 · Introduction</p>
+						<h2>AI as a role that can be deliberately designed</h2>
+						<div class="prose"><p>Generative AI is usually framed as efficiency or automation. This project instead treats the role of AI as something that can be <strong>designed</strong>, using drawing as an embodied activity where AI intervention directly shapes a designer’s actions and sense of authorship.</p><p>Drawing on Suchman’s situated action, Beer’s cybernetics and Rogers’ participatory interaction, it frames three roles for AI in creative systems — <strong>technical tool, creative assistant, and collaborative partner</strong> — and ends with a conceptual prototype built around controllability, feedback and traceability.</p></div>
+					</section>
+<section class="b-sec" id="prototype">
+						<p class="mono">02 · Prototype</p>
+						<h2>A visible, learnable AI participant</h2>
+						<div class="prose"><p>The prototype asks whether humans and AI can form an interaction that is perceptible, responsive and continuously negotiable. The AI is not an autonomous creator: it appears at key moments, and the user decides whether to accept, adjust or reject its response.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Co-creation/system-overview.png" alt="System overview of the human–AI co-creation platform" loading="lazy"></button><figcaption><b>Fig. 1</b>System overview of the human–AI co-creation platform</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Co-creation/roles-diagram.png" alt="Human–machine roles within the system" loading="lazy"></button><figcaption><b>Fig. 2</b>Human–machine roles within the system</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="system">
+						<p class="mono">03 · System</p>
+						<h2>Two hands, three phases</h2>
+						<div class="prose"><p>Bodily gesture is the main medium. The <strong>right hand</strong> switches modes — open palm for Paint, fist for Gesture Invocation — while the <strong>left hand</strong> executes: the index finger draws or records a gesture, and an open palm pauses or triggers.</p><p><strong>1 · Initial Creation.</strong> Free gestural strokes become generative conditions and produce a first image, such as a mountain landscape.</p></div><div class="b-figs"><figure class="fig fig--pair"><div class="fig__pair"><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase1-canvas.png" alt="Camera-based interface capturing real-time gestures" loading="lazy"></button><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase1-camera.png" alt="Camera-based interface capturing real-time gestures" loading="lazy"></button></div><figcaption><b>Fig. 3</b>Camera-based interface capturing real-time gestures</figcaption></figure><figure class="fig fig--pair"><div class="fig__pair"><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase1-dreaming.png" alt="System-generated imagery from user gestures" loading="lazy"></button><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase1-output.png" alt="System-generated imagery from user gestures" loading="lazy"></button></div><figcaption><b>Fig. 4</b>System-generated imagery from user gestures</figcaption></figure></div><div class="prose"><p><strong>2 · Annotation &amp; Learning.</strong> The user selects a region they like; the system links its texture to the gesture that produced it.</p></div><div class="b-figs"><figure class="fig fig--pair"><div class="fig__pair"><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase2-select.png" alt="Annotating AI output and storing the associated gesture" loading="lazy"></button><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase2-stored.png" alt="Annotating AI output and storing the associated gesture" loading="lazy"></button></div><figcaption><b>Fig. 5</b>Annotating AI output and storing the associated gesture</figcaption></figure></div><div class="prose"><p><strong>3 · Gesture Invocation.</strong> Repeating a learned gesture recalls its texture onto the canvas, so the drawing grows through “Draw → Generate → Sample → Draw again” into a shared gestural language between human and AI.</p></div><div class="b-figs"><figure class="fig fig--pair"><div class="fig__pair"><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase3-record.png" alt="Closing the right hand to enter invocation mode" loading="lazy"></button><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase3-fist.png" alt="Closing the right hand to enter invocation mode" loading="lazy"></button></div><figcaption><b>Fig. 6</b>Closing the right hand to enter invocation mode</figcaption></figure><figure class="fig fig--pair"><div class="fig__pair"><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase3-recall.png" alt="A learned gesture recalls content onto the canvas" loading="lazy"></button><button class="fig__img" type="button"><img src="assets/img/Co-creation/phase3-palm.png" alt="A learned gesture recalls content onto the canvas" loading="lazy"></button></div><figcaption><b>Fig. 7</b>A learned gesture recalls content onto the canvas</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/Co-creation/shared-language.png" alt="A shared language emerges through interaction" loading="lazy"></button><figcaption><b>Fig. 8</b>A shared language emerges through interaction</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="references">
+						<p class="mono">04 · References</p>
+						<h2>References</h2>
+						<div class="prose"><ul class="refs"><li>Suchman, L. A. (2011). Anthropological relocations and the limits of design. <em>Annual Review of Anthropology</em>, 40(1).</li><li>Beer, S. (1974). <em>Designing freedom</em>.</li><li>Rogers, Y. (2006). Moving on from Weiser’s vision of calm computing. <em>UbiComp 2006</em>. Springer.</li><li>Goodman, N. (1978). <em>Ways of worldmaking</em>. Hackett.</li><li>Google Creative Lab. (2017). <a href="https://www.autodraw.com" target="_blank" rel="noopener">AutoDraw</a>.</li><li>Lee, Y. J. et al. (2011). <a href="https://dl.acm.org/doi/10.1145/2010324.1964922" target="_blank" rel="noopener">ShadowDraw</a>. <em>ACM TOG</em>, 30(4).</li><li>Xie, J. et al. (2014). PortraitSketch: Face sketching assistance for novices. <em>UIST ’14</em>.</li><li><a href="https://cogtoolslab.github.io/pdf/fan_collabdraw_2019.pdf" target="_blank" rel="noopener">Collaborative drawing with a generative model</a>. <em>C&amp;C ’19</em>.</li></ul></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

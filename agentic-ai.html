@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LLM-Mediated Tool-Making in Visual Programming — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Toward LLM-Mediated Tool-Making in Visual Programming — Customized Components for Computational Design">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">Agentic AI · ACADIA 2026 Field Note</p>
+					<h1 class="hero__title">LLM-Mediated Tool-Making in Visual Programming</h1>
+					<p class="hero__sub">Customized components for computational design: generating, packaging, and reusing Grasshopper tools from natural-language intent</p>
+					<div class="tags"><span>Agentic AI</span><span>Grasshopper</span><span>Visual Programming</span></div>
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/cover.jpg" alt="Codex agent and the generated Grasshopper graph"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Venue</dt><dd>ACADIA 2026 · Field Note</dd></div><div><dt>Authors</dt><dd>Cheng-Wen Fu, Wei-Chun Cheng</dd></div><div><dt>Toolkit</dt><dd>Codex, Cordyceps Grasshopper MCP bridge, Python 3</dd></div><div><dt>Status</dt><dd>Working prototype</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#paradox" class="is-on"><b>01</b>Paradox</a><a href="#approach"><b>02</b>Approach</a><a href="#workflow"><b>03</b>Workflow</a><a href="#demo"><b>04</b>Demonstration</a><a href="#future"><b>05</b>Future Work</a><a href="#references"><b>06</b>References</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="paradox">
+						<p class="mono">01 · Paradox</p>
+						<h2>Visual programming lowers the barrier to code, not to tool-making</h2>
+						<div class="prose"><p>Visual programming environments such as Grasshopper let designers work with computational logic without writing low-level code. Woodbury describes parametric modeling as a way for a design system to vary while staying internally consistent, Burry frames scripting as a design practice, and Coates treats programming in architecture as computational thinking applied to form, behavior, and generative processes. The shared value is that the translation between design intent and computational logic becomes <strong>visible, adjustable, and open to discussion</strong>.</p><p>Yet as tasks become more complex or personal, default components stop being enough and designers turn to specialized plug-ins. These extend Grasshopper, but they also require adopting systems, data structures, and functions defined by others. The result is two paradoxes: designers <strong>spend a lot of time understanding “other’s” systems</strong>, and still <strong>cannot always find what they want</strong>.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/paradox.jpg" alt="The paradox of visual programming" loading="lazy"></button><figcaption><b>Fig. 1</b>The paradox of visual programming</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="approach">
+						<p class="mono">02 · Approach</p>
+						<h2>The LLM as a mediator between intent and logic</h2>
+						<div class="prose"><p>Recent research positions large language models as mediators between high-level design intent and executable logic. LLMto3D translates text prompts into Python for parametric 3D objects, and “Mediating Modes of Thought” addresses the relationship between natural-language intent and visual programming logic. Later work by Rietschel and Steinfeld examines the reasoning systems that support exploratory computational design, and names two limits this project responds to: <strong>one-off script generation</strong> and <strong>the lack of a sustained user–model feedback loop</strong>.</p><p>This Field Note proposes an LLM-driven customized component system. In the prototype, a component becomes a technical container that also carries the design intent behind its creation, while the graph serves as a medium for organizing, externalizing, and revising design thinking through dataflow. Supported by semantic intent documentation, designers can repeatedly refine intent and logic, so customized components become part of an evolving personal tool ecosystem.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/workflow-comparison.jpg" alt="Default and plug-in workflow compared with the LLM-mediated workflow" loading="lazy"></button><figcaption><b>Fig. 2</b>Comparison with existing workflows</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/customized-component-workflow.jpg" alt="Customized component workflow from /gh-plan to /gh-reuse" loading="lazy"></button><figcaption><b>Fig. 3</b>Customized component workflows as the next step in LLM-mediated visual programming</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="workflow">
+						<p class="mono">03 · Workflow</p>
+						<h2>Four Skills: plan, build, package, reuse</h2>
+						<div class="prose"><p>The prototype uses Codex with a customized Skill and the Cordyceps Grasshopper MCP bridge (Talley 2026). The process is a four-stage workflow, <strong>/gh-plan</strong>, <strong>/gh-build</strong>, <strong>/gh-package</strong>, and <strong>/gh-reuse</strong>, each defined as a Skill in a skill.md file for Codex.</p><p><strong>1 · /gh-plan: Intention Breakdown.</strong> Translates a natural-language request into a structured Intent Record before touching the canvas. Stored as JSON, it defines goals, stages, nodes, inputs, outputs, and dataflow edges. A simple visualization lets the designer review and revise the interpretation, and each output is traced to the designer’s own words in a personal semantic.md file.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/gh-plan.jpg" alt="The /gh-plan workflow from design intent to a reviewable Intent Record" loading="lazy"></button><figcaption><b>Fig. 4</b>The /gh-plan workflow: from design intent to a reviewable Intent Record</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/intent-record.jpg" alt="Structure of the Intent Record JSON" loading="lazy"></button><figcaption><b>Fig. 5</b>Structure of the Intent Record JSON: goals, stages, nodes, connections, and traceability</figcaption></figure></div><div class="prose"><p><strong>2 · /gh-build: Plan Implementation.</strong> Transforms the validated Intent Record into a working Grasshopper definition. From its stages and graph structure, the LLM generates customized Python scripts and organizes component groups on the canvas. The components stay visible and editable, so the designer can refine the result through feedback.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/gh-build.jpg" alt="The /gh-build workflow from Intent Record to Grasshopper graph" loading="lazy"></button><figcaption><b>Fig. 6</b>The /gh-build workflow</figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/prototype-canvas.jpg" alt="Intent Record stages, nodes, and edges mapped onto the Grasshopper canvas" loading="lazy"></button><figcaption><b>Fig. 7</b>The implementation of /gh-build in the prototype and how it maps onto the Grasshopper canvas</figcaption></figure></div><div class="prose"><p><strong>3 · /gh-package: Component Storage.</strong> After verification and designer confirmation, the implementation is encapsulated as a Grasshopper User Object that preserves the Python code, component interface, semantic role, and package information. The related graph layout is linked to the Intent Record, so a one-off script becomes a reusable tool tied to the process that created it.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/gh-package.jpg" alt="The /gh-package workflow" loading="lazy"></button><figcaption><b>Fig. 8</b>The /gh-package workflow: packaging the completed workflow as a reusable component</figcaption></figure></div><div class="prose"><p><strong>4 · /gh-reuse: Memory Recall and Adjustment.</strong> Recalls a stored component together with its Intent Record and graph structure, so Codex understands what the component does and how it was used. It can then be placed in a new graph, combined with others, and adapted to a new intention: reuse becomes recalling, adapting, and extending earlier design logic rather than inserting the same tool again.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/gh-reuse.jpg" alt="The /gh-reuse workflow" loading="lazy"></button><figcaption><b>Fig. 9</b>The /gh-reuse workflow: reusing and adapting a packaged component for a new design task</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="demo">
+						<p class="mono">04 · Demonstration</p>
+						<h2>A Taipei-time adaptive facade</h2>
+						<div class="prose"><p>In the demonstration, a single /gh-plan prompt asks for a facade that uses current Taipei local time to calculate solar position and adjust horizontal louver angles. The resulting Intent Record has five stages: Time and Design Controls, Clock and Solar Position, Facade Panel Framework, Adaptive Shading Logic, and Geometry and Operational Feedback.</p><p>/gh-build implemented it on the canvas with 31 objects, 42 dataflow connections, and six Python components producing a 12×6 grid of 72 louvers. /gh-package then registered all six components individually as User Objects under <em>Cordyceps → Taipei Facade</em>, recording them as packaged in the Intent Record.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/LLM-Mediated/demonstration.jpg" alt="Experimental workflow demonstration from prompt to packaged User Objects" loading="lazy"></button><figcaption><b>Fig. 10</b>Experimental workflow demonstration: prompts, Intent Record excerpt, built graph, and packaged User Objects</figcaption></figure></div>
+					</section>
+<section class="b-sec" id="future">
+						<p class="mono">05 · Future Work</p>
+						<h2>Reliability, verification, and designer control</h2>
+						<div class="prose"><p>Future evaluation could compare this workflow against existing Grasshopper plug-ins, measuring accuracy, efficiency, usability, and time to a final outcome through performance metrics and user surveys.</p><p>The limits also need attention: established plug-ins carry expert knowledge, testing, documentation, and long-term support, and in specialized fields designers may be unable to verify whether LLM-generated logic is correct. Future research should examine how generated components are validated, how their limitations are communicated, and when expert review is required, in order to define where personalized LLM-generated components can support design practice and where established tools and professional knowledge remain necessary.</p></div>
+					</section>
+<section class="b-sec" id="references">
+						<p class="mono">06 · References</p>
+						<h2>References</h2>
+						<div class="prose"><ul class="refs"><li>Burry, M. (2011). <em>Scripting Cultures: Architectural Design and Programming</em>. Wiley.</li><li>Coates, P. (2010). <em>Programming.Architecture</em>. Routledge.</li><li>Hasdell, P. (2009). Pneuma: An indeterminate architecture, or toward a soft and weedy architecture. In <em>Design Ecologies: Sustainable Potentials in Architecture</em>. Princeton Architectural Press.</li><li>Hizmi, B. E., Shkolnik, A., Austern, G., &amp; Sterman, Y. (2024). LLMto3D: Generating parametric objects from text prompts. <em>ACADIA 2024: Designing Change</em>, 157–166.</li><li>Rietschel, M., &amp; Steinfeld, K. (2025). <a href="https://doi.org/10.1177/14780771251352945" target="_blank" rel="noopener">Intelligent tools on the loose: Reasoning models for exploratory computational design</a>. <em>International Journal of Architectural Computing</em>, 23(3), 655–678.</li><li>Rietschel, M., Guo, F., &amp; Steinfeld, K. (2024). Mediating modes of thought: Large language models for design scripting. <em>ACADIA 2024: Designing Change</em>, 513–524.</li><li>Talley, B. (2026). <a href="https://github.com/brookstalley/cordyceps" target="_blank" rel="noopener">Cordyceps: Grasshopper MCP Bridge</a>. GitHub repository. Accessed July 30, 2026.</li><li>Woodbury, R. (2010). <em>Elements of Parametric Design</em>. Routledge.</li></ul></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>

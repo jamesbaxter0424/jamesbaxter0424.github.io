@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Scripting and Parametric Design — Cheng-Wen Fu</title>
+	<link rel="icon" type="image/png" href="assets/img/Icon.png">
+	<link rel="apple-touch-icon" href="assets/img/Icon.png">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Scripting and Parametric Design — Computational Geometry and Generative Algorithms Practice">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500;600&display=swap">
+	<link rel="stylesheet" href="assets/css/base.css">
+	<link rel="stylesheet" href="assets/css/project.css">
+</head>
+<body>
+
+	<header class="site-header" id="header">
+		<a class="brand" href="index.html" aria-label="Cheng-Wen Fu — home">
+			<img src="assets/img/logo.png" alt="Cheng-Wen Fu" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand__mark',textContent:'CW·FU'}))">
+		</a>
+		<button class="menu-btn" id="menuOpen" aria-haspopup="true" aria-expanded="false" aria-controls="overlay">Menu<span class="bars" aria-hidden="true"><span></span><span></span></span></button>
+	</header>
+
+	<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Site menu">
+		<button class="overlay__close" id="menuClose" aria-label="Close menu">Close ✕</button>
+		<nav class="overlay__nav"><a href="index.html">Home</a><a href="work.html">Work</a><a href="about.html">About</a></nav>
+	</div>
+
+	<section class="hero">
+		<div class="wrap">
+			<div class="hero__grid">
+				<div>
+					<p class="mono">Generative Algorithms · 2025</p>
+					<h1 class="hero__title">Scripting and Parametric Design</h1>
+					<p class="hero__sub">Computational Geometry and Generative Algorithms Practice</p>
+					<div class="tags"><span>Rule-Based Design</span><span>Generative Algorithms</span></div>
+					
+				</div>
+				<figure class="fig fig--photo">
+					<button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-00.gif" alt="Scripting and Parametric Design overview"></button>
+				</figure>
+			</div>
+			<dl class="meta">
+				<div><dt>Year</dt><dd>2025</dd></div><div><dt>Category</dt><dd>Parametric Modeling, Generative Algorithms</dd></div><div><dt>Toolkit</dt><dd>Python, Grasshopper</dd></div><div><dt>Instructor</dt><dd>Jimmy Cheng</dd></div>
+			</dl>
+		</div>
+	</section>
+
+	<section class="band">
+		<div class="wrap">
+			<div class="b-layout">
+				<nav class="b-nav" aria-label="Sections">
+					<span class="label">Contents</span>
+					<a href="#l-system" class="is-on"><b>01</b>L-System</a><a href="#island-builder"><b>02</b>Island Builder</a><a href="#recursion"><b>03</b>Recursion</a><a href="#subdivision"><b>04</b>Subdivision</a>
+				</nav>
+
+				<div>
+					<section class="b-sec" id="l-system">
+						<p class="mono">01 · L-System</p>
+						<h2>L-System Generative Modeling</h2>
+						<div class="prose"><p>This project investigates the application of Stochastic L-Systems in 3D architectural composition. By establishing a Spatial Grammar, we abstract architectural elements into symbolic representations (A, P, E, S) and define rewriting rules that simulate the growth of a building akin to biological organisms. The system incorporates stochastic decision-making, ensuring that while structural logic is strictly maintained, the resulting spatial configurations exhibit diverse and non-repetitive morphologies.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-Cover.gif" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 1</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-01.jpg" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 2</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-01-2.png" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 3</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-01-1.png" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 4</b></figcaption></figure></div>
+					</section>
+<section class="b-sec" id="island-builder">
+						<p class="mono">02 · Island Builder</p>
+						<h2>Island Builder : Cellular Automata Design</h2>
+						<div class="prose"><p>"Island Builder" is a computational tool designed to generate organic archipelago formations within a grid system. Instead of utilizing pure random noise, this algorithm implements a Distance-based Influence Field. By calculating the proximity of grid cells to randomly distributed cluster centers, the system defines a probability map for land formation. This process serves as an advanced initialization technique for Cellular Automata (CA) simulations or procedural game maps.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-02-1.gif" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 5</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-02.jpg" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 6</b></figcaption></figure></div>
+					</section>
+<section class="b-sec" id="recursion">
+						<p class="mono">03 · Recursion</p>
+						<h2>Recursion Generative Design</h2>
+						<div class="prose"><p>This project explores the application of recursive logic in computational design for complex form-finding. By developing a custom algorithmic script, we investigate how a single base surface can evolve into an intricate, three-dimensional spatial structure through iterative geometric operations. The project aims to demonstrate "complexity from simplicity," mimicking natural growth patterns like crystalline formations through defined computational rules.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-03.jpg" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 7</b></figcaption></figure></div>
+					</section>
+<section class="b-sec" id="subdivision">
+						<p class="mono">04 · Subdivision</p>
+						<h2>Subdivision Systems Design</h2>
+						<div class="prose"><p>The design logic of this pavilion starts with creating a grid on the base surface, divided by U and V directions. Instead of using equal spacing, a cosine distribution is applied to redistribute the sampling points, so the density and tension of the units respond to the surface’s form. The height of each grid point is normalized and then translated into parameters that control the scale, rotation, and vertical extension of each unit. As a result, every unit adjusts its size and angle according to the surface’s topography. Each unit is lofted from three layers of curves, while diagonal midlines are used to generate tubular supports, forming an inner structural skeleton that reinforces the tension. In the end, the red tubular lines and the white shell surfaces weave together to create a pavilion that both follows the terrain and expresses a dynamic rhythm.</p></div><div class="b-figs"><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-04.jpg" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 8</b></figcaption></figure><figure class="fig"><button class="fig__img" type="button"><img src="assets/img/scripting/Scripting-04-1.jpg" alt="Scripting and Parametric Design" loading="lazy"></button><figcaption><b>Fig. 9</b></figcaption></figure></div>
+					</section>
+
+					<div class="p-foot">
+						<a class="btn btn--solid" href="index.html">← Back to Home</a>
+						<div class="share">
+							<span>Share this work</span>
+							<button class="share__btn js-copy-page-link" type="button" aria-label="Copy page link">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.5 19.5"/></svg>
+								<span class="share__tip" aria-hidden="true">Copied!</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="site-footer">
+		<div class="wrap">
+			<div class="footer__bottom">
+				<span>© 2026 Cheng-Wen Fu. All rights reserved.</span>
+				<span class="links">
+					<a href="https://www.linkedin.com/in/chengwenfu/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="https://github.com/jamesbaxter0424" target="_blank" rel="noopener">GitHub</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+	<dialog class="lb" id="lb" aria-label="Enlarged image"><button type="button" id="lbClose">Close ✕</button><img id="lbImg" alt=""></dialog>
+
+	<script src="assets/js/site.js"></script>
+	<script src="assets/js/project.js"></script>
+</body>
+</html>
